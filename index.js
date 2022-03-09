@@ -1,39 +1,39 @@
 document.addEventListener("click", (event) => {
-  const className = event.path[0];
-  if (className.classList.contains("easy")) {
+  const { target } = event;
+  if (target.classList.contains("easy")) {
     document.querySelector(".menu").classList.add("hidden");
     maze("easy");
-  } else if (className.classList.contains("medium")) {
+  } else if (target.classList.contains("medium")) {
     document.querySelector(".menu").classList.add("hidden");
     maze("medium");
-  } else if (className.classList.contains("hard")) {
+  } else if (target.classList.contains("hard")) {
     document.querySelector(".menu").classList.add("hidden");
     maze("hard");
-  } else if (className.classList.contains("expert")) {
+  } else if (target.classList.contains("expert")) {
     document.querySelector(".menu").classList.add("hidden");
     maze("expert");
   }
-  // } else if (className.classList.contains("playagain")) {
+  // } else if (target.classList.contains("playagain")) {
   //   document.querySelector(".winner").classList.add("hidden");
   //   document.querySelector(".menu").classList.remove("hidden");
   // }
 });
 document.addEventListener("touchstart", (event) => {
-  const className = event.path[0];
-  if (className.classList.contains("easy")) {
+  const { target } = event;
+  if (target.classList.contains("easy")) {
     document.querySelector(".menu").classList.add("hidden");
     maze("easy");
-  } else if (className.classList.contains("medium")) {
+  } else if (target.classList.contains("medium")) {
     document.querySelector(".menu").classList.add("hidden");
     maze("medium");
-  } else if (className.classList.contains("hard")) {
+  } else if (target.classList.contains("hard")) {
     document.querySelector(".menu").classList.add("hidden");
     maze("hard");
-  } else if (className.classList.contains("expert")) {
+  } else if (target.classList.contains("expert")) {
     document.querySelector(".menu").classList.add("hidden");
     maze("expert");
   }
-  // } else if (className.classList.contains("playagain")) {
+  // } else if (target.classList.contains("playagain")) {
   //   document.querySelector(".winner").classList.add("hidden");
   //   document.querySelector(".menu").classList.remove("hidden");
   // }
