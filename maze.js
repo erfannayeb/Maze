@@ -215,22 +215,22 @@ const maze = (difficulty) => {
   document.addEventListener("touchstart", (firstEvent) => {
     firstEvent.preventDefault();
     const { x, y } = ball.velocity;
-    const firstX = firstEvent.clientX;
-    const firstY = firstEvent.clientY;
+    const firstX = firstEvent.touches[0].clientX;
+    const firstY = firstEvent.touches[0].clientY;
     document.addEventListener("touchend", (secondEvent) => {
       secondEvent.preventDefault();
-      const secondX = secondEvent.clientX;
-      const secondY = secondEvent.clientY;
-      if (secondY > firstY) {
+      const secondX = secondEvent.touches[0].clientX - firstX;
+      const secondY = secondEvent.touches[0].clientY - firstY;
+      if (secondY > 0) {
         Body.setVelocity(ball, { x, y: y + 3 });
       }
-      if (secondY < firstY) {
+      if (secondY < 0) {
         Body.setVelocity(ball, { x, y: y - 3 });
       }
-      if (secondX > firstX) {
+      if (secondX > 0) {
         Body.setVelocity(ball, { x: x + 3, y });
       }
-      if (secondX < firstX) {
+      if (secondX < 0) {
         Body.setVelocity(ball, { x: x - 3, y });
       }
     });
