@@ -213,10 +213,12 @@ const maze = (difficulty) => {
     }
   });
   document.addEventListener("touchstart", (firstEvent) => {
+    firstEvent.preventDefault();
     const { x, y } = ball.velocity;
     const firstX = firstEvent.clientX;
     const firstY = firstEvent.clientY;
     document.addEventListener("touchend", (secondEvent) => {
+      secondEvent.preventDefault();
       const secondX = secondEvent.clientX;
       const secondY = secondEvent.clientY;
       if (secondY > firstY) {
