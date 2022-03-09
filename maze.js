@@ -212,6 +212,27 @@ const maze = (difficulty) => {
       Body.setVelocity(ball, { x: x - 3, y });
     }
   });
+  document.addEventListener("touchstart", (firstEvent) => {
+    const { x, y } = ball.velocity;
+    const firstX = firstEvent.clientX;
+    const firstY = firstEvent.clientY;
+    document.addEventListener("touchend", (secondEvent) => {
+      const secondX = secondEvent.clientX;
+      const secondY = secondEvent.clientY;
+      if (secondY > firstY) {
+        Body.setVelocity(ball, { x, y: y + 3 });
+      }
+      if (secondY < firstY) {
+        Body.setVelocity(ball, { x, y: y - 3 });
+      }
+      if (secondX > firstX) {
+        Body.setVelocity(ball, { x: x + 3, y });
+      }
+      if (secondX < firstX) {
+        Body.setVelocity(ball, { x: x - 3, y });
+      }
+    });
+  });
   //won condition
   Events.on(engine, "collisionStart", (event) => {
     const labels = ["goal", "ball"];
