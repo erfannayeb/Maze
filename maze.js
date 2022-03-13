@@ -196,7 +196,7 @@ const maze = (difficulty) => {
     },
   });
   World.add(world, ball);
-
+  //wide screen move
   document.addEventListener("keydown", (event) => {
     const { x, y } = ball.velocity;
     if (event.keyCode === 87 || event.keyCode === 38) {
@@ -212,29 +212,24 @@ const maze = (difficulty) => {
       Body.setVelocity(ball, { x: x - 3, y });
     }
   });
-  document.addEventListener("touchstart", (firstEvent) => {
-    firstEvent.preventDefault();
-    const { x, y } = ball.velocity;
-    const firstX = firstEvent.touches[0].clientX;
-    const firstY = firstEvent.touches[0].clientY;
-    document.addEventListener("touchend", (secondEvent) => {
-      secondEvent.preventDefault();
-      const secondX = secondEvent.touches[0].clientX - firstX;
-      const secondY = secondEvent.touches[0].clientY - firstY;
-      if (secondY > 0) {
-        Body.setVelocity(ball, { x, y: y + 3 });
-      }
-      if (secondY < 0) {
+  //mobile screen move
+  if (window.screen.availWidth < 1300 && window.screen.availHeight < 1400) {
+    document.querySelector("#mobile-button").classList.remove("hidden");
+    addEventListener("touchstart", (event) => {
+      const { x, y } = ball.velocity;
+      const { target } = event;
+      if (target.classList.contains("up")) {
         Body.setVelocity(ball, { x, y: y - 3 });
-      }
-      if (secondX > 0) {
+      } else if (target.classList.contains("down")) {
+        Body.setVelocity(ball, { x, y: y + 3 });
+      } else if (target.classList.contains("right")) {
         Body.setVelocity(ball, { x: x + 3, y });
-      }
-      if (secondX < 0) {
+      } else if (target.classList.contains("left")) {
         Body.setVelocity(ball, { x: x - 3, y });
       }
     });
-  });
+  }
+
   //won condition
   Events.on(engine, "collisionStart", (event) => {
     const labels = ["goal", "ball"];
