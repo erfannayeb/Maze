@@ -3,10 +3,15 @@
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Creepster&family=Syncopate&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/c2cc79cebf.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -14,11 +19,23 @@
     <div class="menu">
       <img src="rush-149.png" alt="" />
       <div class="buttons">
-        <button class="easy">Easy</button>
-        <button class="medium">Medium</button>
-        <button class="hard">Hard</button>
-        <button class="expert">Expert</button>
+        <button class="easy hover">Easy</button>
+        <button class="medium hover">Medium</button>
+        <button class="hard hover">Hard</button>
+        <button class="expert hover">Expert</button>
       </div>
+    </div>
+    <div id="mobile-button" class="hidden">
+      <button class="up mobile"><i class="fa-solid fa-arrow-up"></i></button>
+      <button class="left mobile">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <button class="down mobile">
+        <i class="fa-solid fa-arrow-down"></i>
+      </button>
+      <button class="right mobile">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
     </div>
     <div class="winner hidden">
       <h1>You Win!</h1>
